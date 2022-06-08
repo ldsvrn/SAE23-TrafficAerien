@@ -45,9 +45,9 @@ class avion(models.Model):
 class vol(models.Model):
     avion = models.ForeignKey(avion, on_delete=models.CASCADE)
     pilote = models.CharField(max_length = 100)
-    aeroport_depart = models.ForeignKey(aeroport, on_delete=models.CASCADE)
+    aeroport_depart = models.ForeignKey(aeroport, on_delete=models.CASCADE, related_name="depart")
     date_depart = models.DateField(blank=True, null = True)
-    aeroport_arrive = models.ForeignKey(aeroport, on_delete=models.CASCADE)
+    aeroport_arrive = models.ForeignKey(aeroport, on_delete=models.CASCADE, related_name="arrivee")
     date_arrivee = models.DateField(blank=True, null = True)
 
     def __str__(self) -> str:
