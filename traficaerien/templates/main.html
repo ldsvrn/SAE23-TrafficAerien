@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+{% load static %}
+<link rel="stylesheet" href="{%static␣'traficaerien/index.css'␣%}">
+<title>{% block title %}Trafic Aérien {% endblock %} </title>
+</head>
+<body>
+<aside id="sidebar">
+{% block sidebar %}
+<ul>
+<li><a href="/">Menu</a></li>
+<li><a href="/traficaerien/index">Index</a></li>
+</ul>
+{% endblock %}
+</aside>
+<div id="content">
+{% block content %}
+<h1> bloc principal </h1>
+{% endblock %}
+</div>
+</body>
+</html>
