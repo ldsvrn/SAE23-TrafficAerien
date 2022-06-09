@@ -2,22 +2,32 @@
 <html lang="fr">
 <head>
 {% load static %}
-<link rel="stylesheet" href="'traficaerien/index.css'">
+    <link rel="stylesheet"  href="{%  static  'style.css'  %}">
 <title>{% block title %}Trafic Aérien {% endblock %} </title>
 </head>
 <body>
 <div id="content">
 {% block content %}
-<h1> Menu </h1>
+<h1 class="menu" > Menu </h1>
 {% endblock %}
 </div>
 <aside id="sidebar">
 {% block sidebar %}
-<ul>
+<ul class="ajout">
 <li><a href="ajout_avion/">Ajout d'un avion</a></li>
 <li><a href="ajout_piste/">Ajout d'une piste</a></li>
 <li><a href="ajout_vol/">Ajout d'un vol</a></li>
 <li><a href="ajout_aeroport/">Ajout d'un aeroport</a></li>
+<li><a href="ajout_compagnie/">Ajout d'une compagnie</a></li>
+<li><a href="ajout_aviontype/">Ajout d'un type d'avion</a></li>
+</ul>
+<ul>
+<li><a href="liste_avion/">Liste des avions</a></li>
+<li><a href="liste_piste/">Liste des pistes</a></li>
+<li><a href="liste_vol/">Liste des vols</a></li>
+<li><a href="liste_aeroport/">Listes des aéroports</a></li>
+<li><a href="liste_compagnie/">liste des compagnies</a></li>
+<li><a href="liste_aviontype/">liste des types d'avions</a></li>
 </ul>
 {% endblock %}
 </aside>

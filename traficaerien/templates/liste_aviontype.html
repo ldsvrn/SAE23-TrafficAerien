@@ -3,31 +3,30 @@
 {% block content %}
 
 <div>
-    <h2>La liste des Aéroports</h2>
+    <h2>La liste des types d'avions</h2>
     <p><a href='/trafic/'> Retour au menu</a></p>
-    <p><a href='/trafic/ajout_aeroport/'> Ajouter un aéroport</a></p>
+    <p><a href='/trafic/ajout_compagnie/'> Ajouter un type d'avion</a></p>
     <ul>
-    {% for aeroport in liste_aeroport%}
+    {% for type_avion in liste_aviontype%}
 
         <div>
           <div>
-            {{ aeroport }}
+            {{ type_avion }}
           </div>
           <div>
             <ul>
-                <li>{{aeroport.style}}</li>
+                <li>{{type_avion.style}}</li>
                 <p> </p>
                 {% for l in liste%}
-                {%if l.aeroport == aeroport %}
+                {%if l.type_avion == type_avion %}
                 <li> {{l}} </li>
                 {% endif %}
                 {% endfor %}
-                <a href="/trafic/delete_aeroport/{{aeroport.id}}/" type="button" > Delete </a>
+                <a href="/trafic/delete_aviontype/{{type_avion.id}}/" type="button" > Delete </a>
             </ul>
 
           </div>
         </div>
-
     {% endfor %}
     </ul>
 </div>

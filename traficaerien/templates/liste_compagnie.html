@@ -3,31 +3,30 @@
 {% block content %}
 
 <div>
-    <h2>La liste des Aéroports</h2>
+    <h2>La liste des compagnies</h2>
     <p><a href='/trafic/'> Retour au menu</a></p>
-    <p><a href='/trafic/ajout_aeroport/'> Ajouter un aéroport</a></p>
+    <p><a href='/trafic/ajout_compagnie/'> Ajouter une compagnie</a></p>
     <ul>
-    {% for aeroport in liste_aeroport%}
+    {% for compagnie in liste_compagnie%}
 
         <div>
           <div>
-            {{ aeroport }}
+            {{ compagnie }}
           </div>
           <div>
             <ul>
-                <li>{{aeroport.style}}</li>
+                <li>{{compagnie.style}}</li>
                 <p> </p>
                 {% for l in liste%}
-                {%if l.aeroport == aeroport %}
+                {%if l.compagnie == compagnie %}
                 <li> {{l}} </li>
                 {% endif %}
                 {% endfor %}
-                <a href="/trafic/delete_aeroport/{{aeroport.id}}/" type="button" > Delete </a>
+                <a href="/trafic/delete_compagnie/{{compagnie.id}}/" type="button" > Delete </a>
             </ul>
 
           </div>
         </div>
-
     {% endfor %}
     </ul>
 </div>
