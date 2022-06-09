@@ -5,9 +5,9 @@ Ce sujet va vous permettre de fournir une interface de gestion du trafic aérien
 - des aéroports (id, nom, pays)
 - des pistes d'atterrissages (numéro, aéroport, longueur)
 - des compagnies (id, nom, description, pays de rattachement)
-- des type d'avions (id, marques, modèle, description, images, longueur de piste nécessaire)
-- des avions (id, nom, compagnie, modèle)
-- des vols (id, avions, pilote, aéroport de départ,  date et heure de départ, aéroport d'arrivée, date et heure d'arrivée)
+- modèle d'avions (id, nom, marques, type, description, images, longueur de piste nécessaire)
+- des avions (id, compagnie, modèle)
+- des vols (id, avions, pilote, aéroport de départ, date et heure de départ, aéroport d'arrivée, date et heure d'arrivée)
 
 Vous devez implémenter un CRUD pour chacun de ces types de données. Vous préparerez la base en avance et la remplirez avec des aéroports, des pistes, des types d'avions, des compagnies, et des avions 
 
