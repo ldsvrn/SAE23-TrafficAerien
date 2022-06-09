@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `sae_23`.`aeroport` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-
 -- -----------------------------------------------------
 -- Table `sae_23`.`compagnie`
 -- -----------------------------------------------------
@@ -133,6 +132,60 @@ CREATE TABLE IF NOT EXISTS `sae_23`.`vol` (
     REFERENCES `sae_23`.`avion` (`IdAvion`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
+
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (1, 'Paris', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (2, 'Berlin', 'Allemagne');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (3, 'Colmar', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (4, 'Fribourg', 'Allemagne');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (5, 'Orléans', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (6, 'Lille', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (7, 'Marseille', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (8, 'Bordeau', 'France');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (9, 'Hambourg', 'Allemagne');
+INSERT INTO sae_23.aeroport (IdAeroport, NomAeroport, PaysAeroport) VALUES (10, 'Munich', 'Allemagne');
+
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (1, 700, 1);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (2, 700, 2);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (3, 700, 3);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (4, 700, 4);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (5, 700, 5);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (6, 700, 6);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (7, 700, 7);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (8, 700, 8);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (9, 700, 9);
+INSERT INTO sae_23.piste (IdPiste, LongueurPiste, IdAeroport) VALUES (10, 800, 10);
+
+INSERT INTO sae_23.compagnie (IdCompagnie, NomCompagnie, DescriCompagnie, PaysCompagnie) VALUES (1, 'Air France', 'C''est une super compagnie aérienne', 'France');
+INSERT INTO sae_23.compagnie (IdCompagnie, NomCompagnie, DescriCompagnie, PaysCompagnie) VALUES (2, 'Easy Jet', 'C''est une super compagnie aérienne', 'Angleterre');
+INSERT INTO sae_23.compagnie (IdCompagnie, NomCompagnie, DescriCompagnie, PaysCompagnie) VALUES (3, 'Lufthansa', 'C''est une super compagnie aérienne', 'Allemgane');
+INSERT INTO sae_23.compagnie (IdCompagnie, NomCompagnie, DescriCompagnie, PaysCompagnie) VALUES (4, 'Qatar Airways', 'C''est une super compagnie aérienne', 'Qatar');
+INSERT INTO sae_23.compagnie (IdCompagnie, NomCompagnie, DescriCompagnie, PaysCompagnie) VALUES (5, 'British Airways', 'C''est une super compagnie aérienne', 'Angleterre');
+
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (3, 'A330', 'Airbus', 'Gros coursier', 'C''est un avion de grande taille pour transporter des passagers', 'image', 600);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (7, 'Boeing 747', 'Boeing', 'Gros coursier', 'C''est un avion de grande taille pour transporter des passagers', 'image', 600);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (8, 'Boeing 757', 'Boeing', 'Gros coursier', 'C''est un avion de grande taille pour transporter des passagers', 'image', 600);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (9, 'Boeing 767', 'Boeing', 'Gros coursier', 'C''est un avion de grande taille pour transporter des passagers', 'image', 600);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (10, 'Boeing 777', 'Boeing', 'Gros coursier', 'C''est un avion de grande taille pour transporter des passagers', 'image', 600);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (1, 'A320', 'Airbus', 'Moyen coursier', 'C''est un avionde taille moyenne pour transporter des passagers', 'image', 400);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (2, 'A321', 'Airbus', 'Moyen coursier', 'C''est un avionde taille moyenne pour transporter des passagers', 'image', 400);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (4, 'Boeing 717', 'Boeing', 'Moyen coursier', 'C''est un avionde taille moyenne pour transporter des passagers', 'image', 400);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (5, 'Boeing 727', 'Boeing', 'Moyen coursier', 'C''est un avionde taille moyenne pour transporter des passagers', 'image', 400);
+INSERT INTO sae_23.modele (IdModele, NomModele, MarqueModele, TypeModele, DescriModele, ImageModele, LongPisteModele) VALUES (6, 'Boeing 737', 'Boeing', 'Moyen coursier', 'C''est un avionde taille moyenne pour transporter des passagers', 'image', 400);
+
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (1, 1, 1);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (2, 1, 2);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (3, 2, 3);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (4, 2, 4);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (5, 3, 5);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (6, 3, 6);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (7, 4, 7);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (8, 4, 8);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (9, 5, 9);
+INSERT INTO sae_23.avion (IdAvion, IdCompagnie, IdModele) VALUES (10, 5, 10);
+
+INSERT INTO sae_23.vol (IdVol, IdAvion, PiloteVol, IdAeroportDepart, IdAeroportArrivee, DateDepartVol, DateArriveeVol) VALUES (1, 2, 'Marc', 1, 2, '2022-06-10 20:30:00', '2022-06-09 23:30:00');
+INSERT INTO sae_23.vol (IdVol, IdAvion, PiloteVol, IdAeroportDepart, IdAeroportArrivee, DateDepartVol, DateArriveeVol) VALUES (2, 4, 'Jean', 9, 3, '2022-06-11 10:30:00', '2022-06-11 15:00:00');
+INSERT INTO sae_23.vol (IdVol, IdAvion, PiloteVol, IdAeroportDepart, IdAeroportArrivee, DateDepartVol, DateArriveeVol) VALUES (3, 7, 'Thierry', 4, 3, '2022-06-13 23:30:00', '2022-06-14 06:00:00');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
