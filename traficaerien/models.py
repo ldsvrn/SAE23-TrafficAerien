@@ -18,79 +18,10 @@ class Aeroport(models.Model):
         db_table = 'aeroport'
 
 
-class AuthGroup(models.Model):
-    name = models.CharField(unique=True, max_length=150)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_group'
-
-
-class AuthGroupPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_group_permissions'
-        unique_together = (('group', 'permission'),)
-
-
-class AuthPermission(models.Model):
-    name = models.CharField(max_length=255)
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
-    codename = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_permission'
-        unique_together = (('content_type', 'codename'),)
-
-
-class AuthUser(models.Model):
-    password = models.CharField(max_length=128)
-    last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField()
-    username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
-    email = models.CharField(max_length=254)
-    is_staff = models.IntegerField()
-    is_active = models.IntegerField()
-    date_joined = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user'
-
-
-class AuthUserGroups(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_groups'
-        unique_together = (('user', 'group'),)
-
-
-class AuthUserUserPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'auth_user_user_permissions'
-        unique_together = (('user', 'permission'),)
-
-
 class Avion(models.Model):
     idavion = models.IntegerField(db_column='IdAvion', primary_key=True)  # Field name made lowercase.
-    idcompagnie = models.ForeignKey('Compagnie', models.DO_NOTHING, db_column='IdCompagnie')  # Field name made lowercase.
-    idmodele = models.ForeignKey('Modele', models.DO_NOTHING, db_column='IdModele')  # Field name made lowercase.
+    idcompagnie = models.OneToOneField('Compagnie', models.DO_NOTHING, db_column='IdCompagnie')  # Field name made lowercase.
+    idmodele = models.OneToOneField('Modele', models.DO_NOTHING, db_column='IdModele')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -106,51 +37,6 @@ class Compagnie(models.Model):
     class Meta:
         managed = False
         db_table = 'compagnie'
-
-
-class DjangoAdminLog(models.Model):
-    action_time = models.DateTimeField()
-    object_id = models.TextField(blank=True, null=True)
-    object_repr = models.CharField(max_length=200)
-    action_flag = models.PositiveSmallIntegerField()
-    change_message = models.TextField()
-    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'django_admin_log'
-
-
-class DjangoContentType(models.Model):
-    app_label = models.CharField(max_length=100)
-    model = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = 'django_content_type'
-        unique_together = (('app_label', 'model'),)
-
-
-class DjangoMigrations(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    app = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    applied = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'django_migrations'
-
-
-class DjangoSession(models.Model):
-    session_key = models.CharField(primary_key=True, max_length=40)
-    session_data = models.TextField()
-    expire_date = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'django_session'
 
 
 class Modele(models.Model):
@@ -170,88 +56,19 @@ class Modele(models.Model):
 class Piste(models.Model):
     idpiste = models.IntegerField(db_column='IdPiste', primary_key=True)  # Field name made lowercase.
     longueurpiste = models.IntegerField(db_column='LongueurPiste')  # Field name made lowercase.
-    idaeroport = models.ForeignKey(Aeroport, models.DO_NOTHING, db_column='IdAeroport')  # Field name made lowercase.
+    idaeroport = models.OneToOneField(Aeroport, models.DO_NOTHING, db_column='IdAeroport')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'piste'
 
 
-class TraficaerienAeroport(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nom = models.CharField(max_length=100)
-    pays = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_aeroport'
-
-
-class TraficaerienAvion(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nom = models.CharField(max_length=100)
-    compagnie = models.ForeignKey('TraficaerienCompagnie', models.DO_NOTHING)
-    modele = models.ForeignKey('TraficaerienTypeAvion', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_avion'
-
-
-class TraficaerienCompagnie(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nom = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
-    pays_de_rattachement = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_compagnie'
-
-
-class TraficaerienPiste(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    longeur = models.IntegerField()
-    aeroport = models.ForeignKey(TraficaerienAeroport, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_piste'
-
-
-class TraficaerienTypeAvion(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    marque = models.CharField(max_length=100)
-    modele = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
-    image = models.CharField(max_length=100, blank=True, null=True)
-    longueur_piste_necessaire = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_type_avion'
-
-
-class TraficaerienVol(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    pilote = models.CharField(max_length=100)
-    date_depart = models.DateField(blank=True, null=True)
-    date_arrivee = models.DateField(blank=True, null=True)
-    aeroport_arrive = models.ForeignKey(TraficaerienAeroport, models.DO_NOTHING)
-    aeroport_depart = models.ForeignKey(TraficaerienAeroport, models.DO_NOTHING)
-    avion = models.ForeignKey(TraficaerienAvion, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'traficaerien_vol'
-
-
 class Vol(models.Model):
     idvol = models.IntegerField(db_column='IdVol', primary_key=True)  # Field name made lowercase.
-    idavion = models.ForeignKey(Avion, models.DO_NOTHING, db_column='IdAvion')  # Field name made lowercase.
+    idavion = models.OneToOneField(Avion, models.DO_NOTHING, db_column='IdAvion')  # Field name made lowercase.
     pilotevol = models.CharField(db_column='PiloteVol', max_length=45)  # Field name made lowercase.
-    idaeroportdepart = models.ForeignKey(Aeroport, models.DO_NOTHING, db_column='IdAeroportDepart')  # Field name made lowercase.
-    idaeroportarrivee = models.ForeignKey(Aeroport, models.DO_NOTHING, db_column='IdAeroportArrivee')  # Field name made lowercase.
+    idaeroportdepart = models.OneToOneField(Aeroport, models.DO_NOTHING, db_column='IdAeroportDepart', related_name="depart")  # Field name made lowercase.
+    idaeroportarrivee = models.OneToOneField(Aeroport, models.DO_NOTHING, db_column='IdAeroportArrivee', related_name="arrivee")  # Field name made lowercase.
     datedepartvol = models.DateTimeField(db_column='DateDepartVol')  # Field name made lowercase.
     datearriveevol = models.DateTimeField(db_column='DateArriveeVol')  # Field name made lowercase.
 
