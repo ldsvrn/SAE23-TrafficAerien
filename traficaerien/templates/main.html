@@ -2,22 +2,24 @@
 <html lang="fr">
 <head>
 {% load static %}
-<link rel="stylesheet" href="{%static␣'traficaerien/index.css'␣%}">
+<link rel="stylesheet" href="'traficaerien/index.css'">
 <title>{% block title %}Trafic Aérien {% endblock %} </title>
 </head>
 <body>
+<div id="content">
+{% block content %}
+<h1> Menu </h1>
+{% endblock %}
+</div>
 <aside id="sidebar">
 {% block sidebar %}
 <ul>
-<li><a href="/">Menu</a></li>
-<li><a href="/traficaerien/index">Index</a></li>
+<li><a href="ajout_avion/">Ajout d'un avion</a></li>
+<li><a href="ajout_piste/">Ajout d'une piste</a></li>
+<li><a href="ajout_vol/">Ajout d'un vol</a></li>
+<li><a href="ajout_aeroport/">Ajout d'un aeroport</a></li>
 </ul>
 {% endblock %}
 </aside>
-<div id="content">
-{% block content %}
-<h1> bloc principal </h1>
-{% endblock %}
-</div>
 </body>
 </html>
