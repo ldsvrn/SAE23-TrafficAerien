@@ -5,64 +5,64 @@ from . import models
 
 class AeroportForm(ModelForm):
     class Meta:
-        model = models.aeroport
-        fields = "__all__"
+        model = models.Aeroport
+        fields = ('nomaeroport', 'paysaeroport')
         #fields = ('nom', 'pays')
         labels = {
-            'nom' : 'Nom',
-            'pays' : 'Pays'
+            'nomaeroport' : 'Nom',
+            'paysaeroport' : 'Pays'
         }
 
 class PisteForm(ModelForm):
     class Meta:
-        model = models.piste
-        fields = "__all__"
+        model = models.Piste
+        fields = ('longueurpiste', 'idaeroport')
         labels = {
-            'nom' : 'Nom',
-            'longueur' : 'Longueur de la piste' 
+            'longueurpiste' : 'Longueur de la piste' ,
+            'idaeroport': 'Aéroport'
         }
 
 class CompagnieForm(ModelForm):
     class Meta:
-        model = models.compagnie
-        fields = "__all__"
+        model = models.Compagnie
+        fields = ('nomcompagnie', 'descricompagnie', 'payscompagnie')
         labels = {
-            'nom' : 'Nom',
-            'description' : 'Description' ,
-            'pays_de_rattachement' : 'Pays de rattachement'
+            'nomcompagnie' : 'Nom',
+            'descricompagnie' : 'Description' ,
+            'payscompagnie' : 'Pays de rattachement'
         }
 
-class AvionTypeForm(ModelForm):
+class ModeleForm(ModelForm):
     class Meta:
-        model = models.type_avion
-        fields = "__all__"
+        model = models.Modele
+        fields = ('nommodele', 'marquemodele', 'typemodele', 'descrimodele', 'imagemodele', 'longpistemodele')
         labels = {
-            'marque' : 'Marque',
-            'modele' : 'Modèle' ,
-            'description' : 'Description',
-            'image': 'Image',
-            'longueur_piste_necessaire': 'Longueur piste nécessaire'
+            'nommodele' : 'Nom',
+            'marquemodele' : 'Marque' ,
+            'typemodele' : 'Type de modèle',
+            'descrimodele': 'Description',
+            'imagemodele': 'Image',
+            'longpistemodele': 'Longueur piste nécessaire'
         }
 
 class AvionForm(ModelForm):
     class Meta:
-        model = models.avion
-        fields = "__all__"
+        model = models.Avion
+        fields = ('idcompagnie', 'idmodele')
         labels = {
-            'nom' : 'Nom',
-            'compagnie' : 'Compagnie' ,
-            'modele' : 'Modèle'
+            'idcompagnie' : 'Compagnie',
+            'idmodele' : 'Modèle' 
         }
 
 class VolForm(ModelForm):
     class Meta:
-        model = models.vol
-        fields = "__all__"
+        model = models.Vol
+        fields = ('idavion', 'pilotevol', 'idaeroportdepart', 'idaeroportarrivee', 'datedepartvol', 'datearriveevol')
         labels = {
-            'avion' : 'Avion',
-            'pilote' : 'Pilote' ,
-            'aeroport_depart' : 'Aéroport de départ',
-            'date_depart': 'Date de départ',
-            'aeroport_arrivee': "Aéroport d'arrivée",
-            'date_arrivee': "Date d'arrivée"
+            'idavion' : 'Avion',
+            'pilotevol' : 'Pilote' ,
+            'idaeroportdepart' : 'Aéroport de départ',
+            'idaeroportarrivee': "Aéroport d'arrivée",
+            'datedepartvol': 'Date de départ',
+            'datearriveevol': "Date d'arrivée"
         }
