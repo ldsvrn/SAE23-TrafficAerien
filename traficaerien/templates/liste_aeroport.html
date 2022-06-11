@@ -1,0 +1,35 @@
+
+
+{% block content %}
+
+<div>
+    <h2>La liste des Aéroports</h2>
+    <p><a href='/trafic/'> Retour au menu</a></p>
+    <p><a href='/trafic/ajout_aeroport/'> Ajouter un aéroport</a></p>
+    <ul>
+    {% for aeroport in liste_aeroport%}
+
+        <div>
+          <div>
+            {{ aeroport }}
+          </div>
+          <div>
+            <ul>
+                <li>{{aeroport.style}}</li>
+                <p> </p>
+                {% for l in liste%}
+                {%if l.aeroport == aeroport %}
+                <li> {{l}} </li>
+                {% endif %}
+                {% endfor %}
+                <a href="/trafic/delete_aeroport/{{aeroport.id}}/" type="button" > Delete </a>
+            </ul>
+
+          </div>
+        </div>
+
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-06-01" view-index="0" gantt-divider-location="400" resource-divider-location="300" version="3.2.3243" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="213" order="0"/>
+        <field id="tpd4" name="Date de début" width="96" order="1"/>
+        <field id="tpd5" name="Date de fin" width="90" order="2"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="color.recent">
+            <![CDATA[#ffff00 #ff0000 #0000ff #00ff00 #ffff33]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Répartition des tâches" color="#ffff00" meeting="false" start="2022-06-07" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="6" name="Diagramme de Gantt" color="#0000ff" meeting="false" start="2022-06-07" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="8" name="Création du GitHub" color="#ff0000" meeting="false" start="2022-06-07" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="10" name="Création de la VM" color="#ff0000" meeting="false" start="2022-06-07" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true">
+            <depend id="13" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="11" name="Création du projet" color="#ff0000" meeting="false" start="2022-06-07" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="7" name="création de la base de données" color="#0000ff" meeting="false" start="2022-06-08" duration="2" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true">
+            <depend id="12" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="12" name="Importer la BDD dans django" color="#0000ff" meeting="false" start="2022-06-10" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="13" name="Importer le projet dans la VM" color="#ff0000" meeting="false" start="2022-06-08" duration="3" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="5" name="Créer les crud à partir de la BDD" color="#ff0000" meeting="false" start="2022-06-13" duration="1" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="14" name="Créer le squelette des pages html" color="#00ff00" meeting="false" start="2022-06-08" duration="2" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true">
+            <depend id="15" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="15" name="Créer les pages html" color="#00ff00" meeting="false" start="2022-06-10" duration="2" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="16" name="Créer les fonctionnnalités du site" color="#ffff00" meeting="false" start="2022-06-13" duration="3" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="9" name="Création du PowerPoint" color="#ffff00" meeting="false" start="2022-06-15" duration="2" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+        <task id="17" name="Fiche projet individuelle" color="#ffff00" meeting="false" start="2022-06-07" duration="8" complete="0" thirdDate="2022-06-07" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="TItouan" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="Louis" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Elise" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Groupe" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="11" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="5" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="0" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="16" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
