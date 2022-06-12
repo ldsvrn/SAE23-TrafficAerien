@@ -21,9 +21,9 @@ def ajout_avion(request):
 
 
 def liste_avion(request):
-    liste = Vol.objects.all()
-    liste_avion = Avion.objects.all()
-    return render(request, 'avion/liste_avion.html', {'liste_avion': liste_avion,"liste":liste})
+    vols = Vol.objects.all()
+    avions = Avion.objects.all()
+    return render(request, 'avion/liste_avion.html', {'avions': avions, "vols": vols})
 
 
 def delete_avion(request, id):

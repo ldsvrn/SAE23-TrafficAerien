@@ -1,6 +1,42 @@
+{% extends "template.html" %}
 
+{% block title %}Liste des Avions{% endblock title %}
+
+{% block h1 %}Liste des Avions{% endblock h1 %} 
+
+{% block navbar %}
+<a class="nav-link" href="/avion/ajout">Ajouter un avion</a>
+{% endblock navbar %}
 
 {% block content %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="ID">ID</abbr></th>
+            <th>Appartient à</th>
+            <th>Modèle</th>
+            <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        {% for avion in avions %}
+        <tbody>
+        <tr>
+            <td><a href="">{{avion.idavion}}</td>
+            <td>{{avion.idcompagnie.nomcompagnie}}</td>
+            <td>{{avion.idmodele.nommodele}}</td>
+            <td class="text-end">
+                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-secondary" href="/os/modif/{{avion.idavion}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/os/suppr/{{avion.idavion}}/">TODO: Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock content %}
+
+{% comment %} {% block content %}
 
 <div>
     <h2>La liste des avions</h2>
@@ -31,4 +67,7 @@
     </ul>
 </div>
 
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+
+

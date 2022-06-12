@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import PisteForm
-from .models import Piste
+from ..forms import PisteForm
+from ..models import Piste
 from django.http import HttpResponseRedirect
 from django import forms
 

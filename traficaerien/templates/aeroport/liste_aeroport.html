@@ -1,35 +1,68 @@
+{% extends "template.html" %}
 
+{% block title %}Liste des Avions{% endblock title %}
+
+{% block h1 %}Liste des Avions{% endblock h1 %} 
+
+{% block navbar %}
+<a class="nav-link" href="/avion/ajout">Ajouter un avion</a>
+{% endblock navbar %}
 
 {% block content %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="ID">ID</abbr></th>
+            <th>Nom</th>
+            <th>Pays</th>
+            <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        {% for aeroport in aeroports %}
+        <tbody>
+        <tr>
+            <td><a href="">{{aeroport.idaeroport}}</td>
+            <td>{{idaeroport.nomaeroport}}</td>
+            <td>{{idaeroport.paysaeroport}}</td>
+            <td class="text-end">
+                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-secondary" href="/os/modif/{{avion.idavion}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/os/suppr/{{avion.idavion}}/">TODO: Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock content %}
+
+{% comment %} {% block content %}
 
 <div>
-    <h2>La liste des Aéroports</h2>
-    <p><a href='/trafic/'> Retour au menu</a></p>
-    <p><a href='/trafic/ajout_aeroport/'> Ajouter un aéroport</a></p>
-    <ul>
+  <h2>La liste des Aéroports</h2>
+  <p><a href="/trafic/"> Retour au menu</a></p>
+  <p><a href="/trafic/ajout_aeroport/"> Ajouter un aéroport</a></p>
+  <ul>
     {% for aeroport in liste_aeroport%}
 
-        <div>
-          <div>
-            {{ aeroport }}
-          </div>
-          <div>
-            <ul>
-                <li>{{aeroport.style}}</li>
-                <p> </p>
-                {% for l in liste%}
-                {%if l.aeroport == aeroport %}
-                <li> {{l}} </li>
-                {% endif %}
-                {% endfor %}
-                <a href="/trafic/delete_aeroport/{{aeroport.id}}/" type="button" > Delete </a>
-            </ul>
-
-          </div>
-        </div>
+    <div>
+      <div>{{ aeroport }}</div>
+      <div>
+        <ul>
+          <li>{{aeroport.style}}</li>
+          <p></p>
+          {% for l in liste%} {%if l.aeroport == aeroport %}
+          <li>{{l}}</li>
+          {% endif %} {% endfor %}
+          <a href="/trafic/delete_aeroport/{{aeroport.id}}/" type="button">
+            Delete
+          </a>
+        </ul>
+      </div>
+    </div>
 
     {% endfor %}
-    </ul>
+  </ul>
 </div>
 
-{% endblock %}
+{% endblock %} {% endcomment %}
