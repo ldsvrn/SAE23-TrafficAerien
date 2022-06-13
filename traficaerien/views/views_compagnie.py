@@ -19,9 +19,8 @@ def ajout_compagnie(request):
     return render(request, 'compagnie/ajout_compagnie.html', {'form':form, 'submitted':submitted})
 
 def liste_compagnie(request):
-   liste = Compagnie.objects.all()
-   liste_compagnie= Compagnie.objects.all()
-   return render(request, 'compagnie/liste_compagnie.html', {'liste_compagnie': liste_compagnie,"liste":liste})
+   compagnies = Compagnie.objects.all()
+   return render(request, 'compagnie/liste_compagnie.html', {'compagnies': compagnies})
 
 def delete_compagnie(request, id):
     compagnie_list = Compagnie.objects.get(id=id)
