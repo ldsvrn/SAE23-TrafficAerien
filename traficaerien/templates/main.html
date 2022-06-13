@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    {% load static %}
-    <link rel="stylesheet" href="{%  static  'style.css'  %}" />
-    <title>{% block title %}Trafic Aérien {% endblock %}</title>
-  </head>
-  <body>
-    <div id="content">
-      {% block content %}
-      <h1 class="menu">Menu</h1>
-      {% endblock %}
-    </div>
-    <aside id="sidebar">
-      {% block sidebar %}
-      <ul class="ajout">
-        <li><a href="avion/ajout">Ajout d'un avion</a></li>
-        <li><a href="piste/ajout">Ajout d'une piste</a></li>
-        <li><a href="vol/ajout">Ajout d'un vol</a></li>
-        <li><a href="aeroport/ajout">Ajout d'un aeroport</a></li>
-        <li><a href="compagnie/ajout">Ajout d'une compagnie</a></li>
-        <li><a href="aviontype/ajout">Ajout d'un type d'avion</a></li>
-      </ul>
-      <ul>
-        <li><a href="avion/liste">Liste des avions</a></li>
-        <li><a href="piste/liste">Liste des pistes</a></li>
-        <li><a href="vol/liste">Liste des vols</a></li>
-        <li><a href="aeroport/liste">Listes des aéroports</a></li>
-        <li><a href="compagnie/liste">Liste des compagnies</a></li>
-        <li><a href="aviontype/liste">Liste des types d'avions</a></li>
-      </ul>
-      {% endblock %}
-    </aside>
-  </body>
-</html>
+{% extends "template.html" %}
+
+{% block title %}Trafic Aérien{% endblock title %}
+
+{% block h1 %}Main Menu{% endblock h1 %} 
+
+{% block content %}
+<div class="list-group">
+  <button><a class="list-group-item list-group-item-action" href="avion/ajout">Ajout d'un avion</a></button>
+  <button><a class="list-group-item list-group-item-action" href="piste/ajout">Ajout d'une piste</a></button>
+  <button><a class="list-group-item list-group-item-action" href="vol/ajout">Ajout d'un vol</a></button>
+  <button><a class="list-group-item list-group-item-action" href="aeroport/ajout">Ajout d'un aeroport</a></button>
+  <button><a class="list-group-item list-group-item-action" href="compagnie/ajout">Ajout d'une compagnie</a></button>
+  <button><a class="list-group-item list-group-item-action" href="modele/ajout">Ajout d'un type d'avion</a></button>
+</div>
+<div class="list-group">
+  <button><a class="list-group-item list-group-item-action" href="avion/liste">Liste des avions</a></button>
+  <button><a class="list-group-item list-group-item-action" href="piste/liste">Liste des pistes</a></button>
+  <button><a class="list-group-item list-group-item-action" href="vol/liste">Liste des vols</a></button>
+  <button><a class="list-group-item list-group-item-action" href="aeroport/liste">Listes des aéroports</a></button>
+  <button><a class="list-group-item list-group-item-action" href="compagnie/liste">Liste des compagnies</a></button>
+  <button><a class="list-group-item list-group-item-action" href="modele/liste">Liste des types d'avions</a></button>
+</div>
+{% endblock content %}
