@@ -19,9 +19,8 @@ def ajout_piste(request):
     return render(request, 'piste/ajout_piste.html', {'form':form, 'submitted':submitted})
 
 def liste_piste(request):
-   liste = Piste.objects.all()
-   liste_piste= Piste.objects.all()
-   return render(request, 'piste/liste_piste.html', {'liste_piste': liste_piste,"liste":liste})
+   pistes= Piste.objects.all()
+   return render(request, 'piste/liste_piste.html', {'pistes': pistes})
 
 
 def delete_piste(request, id):
