@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+
+{% block title %}Liste des Modèles{% endblock title %}
+
+{% block h1 %}Liste des Modèles{% endblock h1 %} 
+
+{% block navbar %}
+<a class="nav-link" href="/modele/ajout">Ajouter un modèle</a>
+{% endblock navbar %}
+
+{% block content %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="ID">ID</abbr></th>
+            <th>Nom</th>
+            <th>Marque</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>TODO: Image</th>
+            <th>Longueur piste minimale</th>
+            <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        {% for modele in modeles %}
+        <tbody>
+        <tr>
+            <td><a href="">{{modele.idmodele}}</td>
+            <td>{{modele.nommodele}}</td>
+            <td>{{modele.marquemodele}}</td>
+            <td>{{modele.typemodele}}</td>
+            <td>{{modele.descrimodele}}</td>
+            <td>{{modele.imagemodele}}</td>
+            <td>{{modele.longpistemodele}}</td>
+            <td class="text-end">
+                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-secondary" href="/modele/modif/{{modele.idmodele}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/modele/suppr/{{modele.idmodele}}/">TODO: Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock content %}

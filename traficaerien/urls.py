@@ -23,7 +23,7 @@ urlpatterns = [
     path('compagnie/liste',views.liste_compagnie),
     path('compagnie/suppr/<int:id>/', views.delete_compagnie),
 
-    path('modele/ajout',views.ajout_aviontype),
-    path('modele/liste',views.liste_aviontype),
-    path('modele/suppr/<int:id>/', views.delete_aviontype),
+    path('modele/ajout',views.ajout_modele),
+    path('modele/liste',views.liste_modele),
+    path('modele/suppr/<int:id>/', views.delete_modele),
 ]

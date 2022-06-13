@@ -5,7 +5,7 @@
 {% block h1 %}Liste des Compagnies{% endblock h1 %} 
 
 {% block navbar %}
-<a class="nav-link" href="/avion/ajout">Ajouter un avion</a>
+<a class="nav-link" href="/compagnie/ajout">Ajouter une compagnie</a>
 {% endblock navbar %}
 
 {% block content %}
@@ -28,8 +28,8 @@
             <td>{{compagnie.payscompagnie}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
-                <a type="button" class="btn btn-secondary" href="/os/modif/{{avion.idavion}}/">TODO: Modifier</a>
-                <a type="button" class="btn btn-danger" href="/os/suppr/{{avion.idavion}}/">TODO: Supprimer</a>
+                <a type="button" class="btn btn-secondary" href="/compagnie/modif/{{compagnie.idcompagnie}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/compagnie/suppr/{{compagnie.idcompagnie}}/">TODO: Supprimer</a>
             </td>
         </tr>
         </tbody>
