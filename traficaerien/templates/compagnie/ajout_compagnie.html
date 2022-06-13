@@ -1,4 +1,17 @@
+{% extends "template.html" %}
 
+{% block title %}Ajouter une Compagnie{% endblock title %}
+
+{% block h1 %}Ajouter Une Compagnie{% endblock h1 %} 
+
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="btn btn-success" value="Valider"\>
+</form>
+{% endblock content %}
+{% comment %} 
 {% block content %}
 <div>
     <h2>Ajout d'une compagnie</h2>
@@ -17,4 +30,4 @@
         <input type="submit" value="Ajouter">
     </form>
 </div>
-{% endblock %}
+{% endblock %} {% endcomment %}

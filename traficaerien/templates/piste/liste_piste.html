@@ -1,5 +1,43 @@
+{% extends "template.html" %}
 
+{% block title %}Liste des Pistes{% endblock title %}
 
+{% block h1 %}Liste des Pistes{% endblock h1 %} 
+
+{% block navbar %}
+<a class="nav-link" href="/piste/ajout">Ajouter une piste</a>
+{% endblock navbar %}
+
+{% block content %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="ID">ID</abbr></th>
+            <th>Longueur de la piste</th>
+            <th>Aéroport</th>
+
+            <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        {% for piste in pistes %}
+        <tbody>
+        <tr>
+            <td><a href="">{{piste.idpiste}}</td>
+            <td>{{piste.longueurpiste}}</td>
+            <td>{{piste.idaeroport.nomaeroport}}, {{piste.idaeroport.paysaeroport}}</td>
+
+            <td class="text-end">
+                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-secondary" href="/piste/modif/{{piste.idpiste}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/piste/suppr/{{piste.idpiste}}/">TODO: Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock content %}
+{% comment %} 
 {% block content %}
 
 <div>
@@ -31,4 +69,4 @@
     </ul>
 </div>
 
-{% endblock %}
+{% endblock %} {% endcomment %}

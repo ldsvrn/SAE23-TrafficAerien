@@ -1,34 +1,45 @@
+{% extends "template.html" %}
 
+{% block title %}Liste des Vols{% endblock title %}
+
+{% block h1 %}Liste des Vols{% endblock h1 %} 
+
+{% block navbar %}
+<a class="nav-link" href="/modele/ajout">Ajouter un vol</a>
+{% endblock navbar %}
 
 {% block content %}
-
-<div>
-    <h2>La liste des vols</h2>
-    <p><a href='/trafic/'> Retour au menu</a></p>
-    <p><a href='/trafic/ajout_vol/'> Ajouter un vol</a></p>
-    <ul>
-    {% for vol in liste_vol%}
-
-        <div>
-          <div>
-            {{ vol }}
-          </div>
-          <div>
-            <ul>
-                <li>{{vol.style}}</li>
-                <p> </p>
-                {% for l in liste%}
-                {%if l.vol == vol %}
-                <li> {{l}} </li>
-                {% endif %}
-                {% endfor %}
-                <a href="/trafic/delete_vol/{{vol.id}}/" type="button" > Delete </a>
-            </ul>
-
-          </div>
-        </div>
-    {% endfor %}
-    </ul>
-</div>
-
-{% endblock %}
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+        <tr>
+            <th><abbr title="ID">ID</abbr></th>
+            <th>Avion</th>
+            <th>Pilote</th>
+            <th>De</th>
+            <th>À</th>
+            <th>Départ</th>
+            <th>Arrivée</th>
+            <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        {% for vol in vols %}
+        <tbody>
+        <tr>
+            <td><a href="">{{vol.idvol}}</td>
+            <td>{{vol.idavion.idmodele.nommodele}} de {{vol.idavion.idcompagnie.nomcompagnie}}</td>
+            <td>{{vol.pilotevol}}</td>
+            <td>{{vol.idaeroportdepart.nomaeroport}}, {{vol.idaeroportdepart.paysaeroport}}</td>
+            <td>{{vol.idaeroportarrivee.nomaeroport}}, {{vol.idaeroportarrivee.paysaeroport}}</td>
+            <td>{{vol.datedepartvol}}</td>
+            <td>{{vol.datearriveevol}}</td>
+            <td class="text-end">
+                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-secondary" href="/vol/modif/{{vol.idvol}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/vol/suppr/{{vol.idvol}}/">TODO: Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    
+{% endblock content %}
