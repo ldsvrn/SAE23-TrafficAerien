@@ -19,9 +19,8 @@ def ajout_vol(request):
     return render(request, 'vol/ajout_vol.html', {'form':form, 'submitted':submitted})
 
 def liste_vol(request):
-   liste = Vol.objects.all()
-   liste_vol= Vol.objects.all()
-   return render(request, 'vol/liste_vol.html', {'liste_vol': liste_vol,"liste":liste})
+   vols = Vol.objects.all()
+   return render(request, 'vol/liste_vol.html', {'vols': vols})
 
 def delete_vol(request, id):
     vol_list = Vol.objects.get(id=id)

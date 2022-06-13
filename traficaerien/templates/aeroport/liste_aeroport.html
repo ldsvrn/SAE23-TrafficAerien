@@ -1,11 +1,11 @@
 {% extends "template.html" %}
 
-{% block title %}Liste des Avions{% endblock title %}
+{% block title %}Liste des Aéroports{% endblock title %}
 
-{% block h1 %}Liste des Avions{% endblock h1 %} 
+{% block h1 %}Liste des Aéroports{% endblock h1 %} 
 
 {% block navbar %}
-<a class="nav-link" href="/avion/ajout">Ajouter un avion</a>
+<a class="nav-link" href="/aeroport/ajout">Ajouter un aéroport</a>
 {% endblock navbar %}
 
 {% block content %}
@@ -26,8 +26,8 @@
             <td>{{idaeroport.paysaeroport}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
-                <a type="button" class="btn btn-secondary" href="/os/modif/{{aeroport.idaeroport}}/">TODO: Modifier</a>
-                <a type="button" class="btn btn-danger" href="/os/suppr/{{aeroport.idaeroport}}/">TODO: Supprimer</a>
+                <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}/">TODO: Modifier</a>
+                <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}/">TODO: Supprimer</a>
             </td>
         </tr>
         </tbody>
