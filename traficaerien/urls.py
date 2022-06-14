@@ -23,10 +23,11 @@ urlpatterns = [
     path('aeroport/modif/<int:id>', views.modif_aeroport),
     path('aeroport/save/<int:id>', views.save_modif_aeroport),
 
-
     path('compagnie/ajout',views.ajout_compagnie),
     path('compagnie/liste',views.liste_compagnie),
     path('compagnie/suppr/<int:id>/', views.delete_compagnie),
+    path('compagnie/modif/<int:id>', views.modif_compagnie),
+    path('compagnie/save/<int:id>', views.save_modif_compagnie),
 
     path('modele/ajout',views.ajout_modele),
     path('modele/liste',views.liste_modele),

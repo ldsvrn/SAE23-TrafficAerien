@@ -27,9 +27,9 @@ def liste_avion(request):
 
 
 def delete_avion(request, id):
-    avion_list = Avion.objects.get(id=id)
+    avion_list = Avion.objects.get(idavion=id)
     avion_list.delete()
-    return HttpResponseRedirect("/avion/liste/")
+    return HttpResponseRedirect("/avion/liste")
 
 
 def modif_avion(request, id):
