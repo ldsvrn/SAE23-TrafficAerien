@@ -1,0 +1,13 @@
+{% extends "template.html" %}
+
+{% block title %}Modifier un Aéroport{% endblock title %}
+
+{% block h1 %}Modifier un Aéroport{% endblock h1 %} 
+
+{% block content %}
+<form method="post" action="/aeroport/save/{{id}}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="btn btn-success" value="Valider"\>
+</form>
+{% endblock content %}
