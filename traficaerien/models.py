@@ -16,8 +16,8 @@ class Aeroport(models.Model):
 
 class Avion(models.Model):
     idavion = models.IntegerField(db_column='IdAvion', primary_key=True)  # Field name made lowercase.
-    idcompagnie = models.OneToOneField('Compagnie', on_delete=models.CASCADE, db_column='IdCompagnie')  # Field name made lowercase.
-    idmodele = models.OneToOneField('Modele', on_delete=models.CASCADE, db_column='IdModele')  # Field name made lowercase.
+    idcompagnie = models.ForeignKey('Compagnie', on_delete=models.CASCADE, db_column='IdCompagnie')  # Field name made lowercase.
+    idmodele = models.ForeignKey('Modele', on_delete=models.CASCADE, db_column='IdModele')  # Field name made lowercase.
 
     def __str__(self) -> str:
         return f"{self.idmodele.nommodele} de {self.idcompagnie.nomcompagnie}"
@@ -62,7 +62,7 @@ class Modele(models.Model):
 class Piste(models.Model):
     idpiste = models.IntegerField(db_column='IdPiste', primary_key=True)  # Field name made lowercase.
     longueurpiste = models.IntegerField(db_column='LongueurPiste')  # Field name made lowercase.
-    idaeroport = models.OneToOneField(Aeroport, on_delete=models.CASCADE, db_column='IdAeroport')  # Field name made lowercase.
+    idaeroport = models.ForeignKey(Aeroport, on_delete=models.CASCADE, db_column='IdAeroport')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -71,10 +71,10 @@ class Piste(models.Model):
 
 class Vol(models.Model):
     idvol = models.IntegerField(db_column='IdVol', primary_key=True)  # Field name made lowercase.
-    idavion = models.OneToOneField(Avion, on_delete=models.CASCADE, db_column='IdAvion')  # Field name made lowercase.
+    idavion = models.ForeignKey(Avion, on_delete=models.CASCADE, db_column='IdAvion')  # Field name made lowercase.
     pilotevol = models.CharField(db_column='PiloteVol', max_length=45)  # Field name made lowercase.
-    idaeroportdepart = models.OneToOneField(Aeroport, on_delete=models.CASCADE, db_column='IdAeroportDepart', related_name="depart")  # Field name made lowercase.
-    idaeroportarrivee = models.OneToOneField(Aeroport, on_delete=models.CASCADE, db_column='IdAeroportArrivee', related_name="arrivee")  # Field name made lowercase.
+    idaeroportdepart = models.ForeignKey(Aeroport, on_delete=models.CASCADE, db_column='IdAeroportDepart', related_name="depart")  # Field name made lowercase.
+    idaeroportarrivee = models.ForeignKey(Aeroport, on_delete=models.CASCADE, db_column='IdAeroportArrivee', related_name="arrivee")  # Field name made lowercase.
     datedepartvol = models.DateTimeField(db_column='DateDepartVol')  # Field name made lowercase.
     datearriveevol = models.DateTimeField(db_column='DateArriveeVol')  # Field name made lowercase.
 

@@ -6,6 +6,8 @@ urlpatterns = [
     path('avion/ajout',views.ajout_avion),
     path("avion/liste",views.liste_avion),
     path('avion/suppr/<int:id>', views.delete_avion),
+    path('avion/modif/<int:id>', views.modif_avion),
+    path('avion/save/<int:id>', views.save_modif_avion),
 
     path('piste/ajout',views.ajout_piste),
     path("piste/liste",views.liste_piste),
@@ -18,6 +20,9 @@ urlpatterns = [
     path('aeroport/ajout',views.ajout_aeroport),
     path('aeroport/liste',views.liste_aeroport),
     path('aeroport/suppr/<int:id>', views.delete_aeroport),
+    path('aeroport/modif/<int:id>', views.modif_aeroport),
+    path('aeroport/save/<int:id>', views.save_modif_aeroport),
+
 
     path('compagnie/ajout',views.ajout_compagnie),
     path('compagnie/liste',views.liste_compagnie),

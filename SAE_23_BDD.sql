@@ -35,7 +35,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `sae_23`.`compagnie`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sae_23`.`compagnie` (
-  `IdCompagnie` INT NOT NULL,
+  `IdCompagnie` INT NOT NULL AUTO_INCREMENT,
   `NomCompagnie` VARCHAR(45) NOT NULL,
   `DescriCompagnie` TEXT NOT NULL,
   `PaysCompagnie` VARCHAR(45) NOT NULL,
@@ -64,7 +64,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `sae_23`.`avion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sae_23`.`avion` (
-  `IdAvion` INT NOT NULL,
+  `IdAvion` INT NOT NULL AUTO_INCREMENT,
   `IdCompagnie` INT NOT NULL,
   `IdModele` INT NOT NULL,
   PRIMARY KEY (`IdAvion`),
@@ -88,7 +88,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `sae_23`.`piste`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sae_23`.`piste` (
-  `IdPiste` INT NOT NULL,
+  `IdPiste` INT NOT NULL AUTO_INCREMENT,
   `LongueurPiste` INT NOT NULL,
   `IdAeroport` INT NOT NULL,
   PRIMARY KEY (`IdPiste`),
@@ -106,7 +106,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `sae_23`.`vol`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sae_23`.`vol` (
-  `IdVol` INT NOT NULL,
+  `IdVol` INT NOT NULL AUTO_INCREMENT,
   `IdAvion` INT NOT NULL,
   `PiloteVol` VARCHAR(45) NOT NULL,
   `IdAeroportDepart` INT NOT NULL,

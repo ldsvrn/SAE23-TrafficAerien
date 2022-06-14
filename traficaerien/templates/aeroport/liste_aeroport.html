@@ -22,12 +22,12 @@
         <tbody>
         <tr>
             <td><a href="">{{aeroport.idaeroport}}</td>
-            <td>{{idaeroport.nomaeroport}}</td>
-            <td>{{idaeroport.paysaeroport}}</td>
+            <td>{{aeroport.nomaeroport}}</td>
+            <td>{{aeroport.paysaeroport}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
-                <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}/">TODO: Modifier</a>
-                <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}/">TODO: Supprimer</a>
+                <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}">Modifier</a>
+                <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}">Supprimer</a>
             </td>
         </tr>
         </tbody>
