@@ -35,39 +35,3 @@
     </table>
     
 {% endblock content %}
-
-{% comment %} {% block content %}
-
-<div>
-    <h2>La liste des avions</h2>
-    <p><a href='/trafic/'> Retour au menu</a></p>
-    <p><a href='/trafic/ajout_avion/'> Ajouter un avion</a></p>
-    <ul>
-    {% for avion in liste_avion%}
-
-        <div>
-          <div>
-            {{ avion }}
-          </div>
-          <div>
-            <ul>
-                <li>{{avion.style}}</li>
-                <p> </p>
-                {% for l in liste%}
-                {%if l.avion == avion %}
-                <li> {{l}} </li>
-                {% endif %}
-                {% endfor %}
-                <a href="/trafic/delete_avion/{{avion.id}}/" type="button" > Delete </a>
-            </ul>
-
-          </div>
-        </div>
-    {% endfor %}
-    </ul>
-</div>
-
-{% endblock %} {% endcomment %}
-
-
-
