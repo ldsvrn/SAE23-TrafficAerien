@@ -18,6 +18,8 @@ urlpatterns = [
     path('vol/ajout',views.ajout_vol),
     path("vol/liste",views.liste_vol),
     path('vol/suppr/<int:id>', views.delete_vol),
+    path('vol/modif/<int:id>', views.modif_vol),
+    path('vol/save/<int:id>', views.save_modif_vol),
 
     path('aeroport/ajout',views.ajout_aeroport),
     path('aeroport/liste',views.liste_aeroport),
