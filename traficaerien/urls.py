@@ -12,6 +12,8 @@ urlpatterns = [
     path('piste/ajout',views.ajout_piste),
     path("piste/liste",views.liste_piste),
     path('piste/suppr/<int:id>', views.delete_piste),
+    path('piste/modif/<int:id>', views.modif_piste),
+    path('piste/save/<int:id>', views.save_modif_piste),
 
     path('vol/ajout',views.ajout_vol),
     path("vol/liste",views.liste_vol),
