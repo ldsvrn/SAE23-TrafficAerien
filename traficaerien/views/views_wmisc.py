@@ -16,6 +16,5 @@ from django.http import HttpResponseRedirect
 from django import forms
 
 def main(request):
-    liste = Avion.objects.all()
-    return render(request, 'main.html', {'liste': liste})
+    return render(request, 'main.html')
     

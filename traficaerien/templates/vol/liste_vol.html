@@ -5,7 +5,7 @@
 {% block h1 %}Liste des Vols{% endblock h1 %} 
 
 {% block navbar %}
-<a class="nav-link" href="/modele/ajout">Ajouter un vol</a>
+<a class="nav-link" href="/vol/ajout">Ajouter un vol</a>
 {% endblock navbar %}
 
 {% block content %}
@@ -34,8 +34,8 @@
             <td>{{vol.datearriveevol}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
-                <a type="button" class="btn btn-secondary" href="/vol/modif/{{vol.idvol}}/">TODO: Modifier</a>
-                <a type="button" class="btn btn-danger" href="/vol/suppr/{{vol.idvol}}/">TODO: Supprimer</a>
+                <a type="button" class="btn btn-secondary" href="/vol/modif/{{vol.idvol}}">Modifier</a>
+                <a type="button" class="btn btn-danger" href="/vol/suppr/{{vol.idvol}}">Supprimer</a>
             </td>
         </tr>
         </tbody>
