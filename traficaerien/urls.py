@@ -32,4 +32,6 @@ urlpatterns = [
     path('modele/ajout',views.ajout_modele),
     path('modele/liste',views.liste_modele),
     path('modele/suppr/<int:id>/', views.delete_modele),
+    path('modele/modif/<int:id>', views.modif_modele),
+    path('modele/save/<int:id>', views.save_modif_modele),
 ]

@@ -1,0 +1,13 @@
+{% extends "template.html" %}
+
+{% block title %}Modifier un Modèle{% endblock title %}
+
+{% block h1 %}Modifier un Modèle{% endblock h1 %} 
+
+{% block content %}
+<form method="post" action="/modele/save/{{id}}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="btn btn-success" value="Valider"\>
+</form>
+{% endblock content %}
