@@ -30,3 +30,58 @@ GRANT ALL PRIVILEGES ON sae_23.* TO 'toto'@'localhost';
 EOS
 
 su - toto -c '/home/toto/django/user_install.sh'
+
+cat << EOS > /etc/systemd/system/gunicorn.socket
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/run/gunicorn.sock
+
+[Install]
+WantedBy=sockets.target
+EOS
+
+cat << EOF > /etc/systemd/system/gunicorn.service
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=harry
+Group=www-data
+WorkingDirectory=/home/toto/django
+ExecStart=/home/toto/django/.venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          SAE23.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl start gunicorn.socket
+systemctl enable gunicorn.socket
+
+cat << EOF > /etc/nginx/sites-available/sae23
+server {
+    listen 80;
+    server_name sae23.lan;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/toto/django;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+}
+EOF
+
+ln -s /etc/nginx/sites-available/sae23 /etc/nginx/sites-enabled/
+
+systemctl restart nginx
