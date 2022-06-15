@@ -19,7 +19,7 @@ CREATE USER 'toto'@'localhost';
 EOS
 
 useradd -m toto
-su - toto -c "git clone https://github.com/ldsvrn/SAE23-TraficAerien -b nginx /home/toto/django"
+su - toto -c "git clone https://github.com/ldsvrn/SAE23-TraficAerien /home/toto/django"
 chmod 774 /home/toto/django/user_install.sh
 
 mysql -u root -p'toto' < /home/toto/django/SAE_23_BDD.sql
