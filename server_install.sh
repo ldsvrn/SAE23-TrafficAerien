@@ -49,14 +49,10 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=harry
+User=toto
 Group=www-data
 WorkingDirectory=/home/toto/django
-ExecStart=/home/toto/django/.venv/bin/gunicorn \
-          --access-logfile - \
-          --workers 3 \
-          --bind unix:/run/gunicorn.sock \
-          SAE23.wsgi:application
+ExecStart=/home/toto/django/.venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/run/gunicorn.sock SAE23.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
