@@ -4,11 +4,13 @@
 
 {% block h1 %}Liste des Pistes{% endblock h1 %} 
 
-{% block navbar %}
-<a class="nav-link" href="/piste/ajout">Ajouter une piste</a>
-{% endblock navbar %}
+
 
 {% block content %}
+<div class="d-grid gap-2 col-6 mx-auto">
+
+    <a class=" justify-content-md-center btn btn-success" href="/piste/ajout">Ajouter une piste</a>
+</div>
     <table class="table is-fullwidth is-hoverable">
         <thead>
         <tr>
@@ -22,7 +24,7 @@
         {% for piste in pistes %}
         <tbody>
         <tr>
-            <td><a href="">{{piste.idpiste}}</td>
+            <td><a href="">{{piste.idpiste}}</a></td>
             <td>{{piste.longueurpiste}}</td>
             <td>{{piste.idaeroport.nomaeroport}}, {{piste.idaeroport.paysaeroport}}</td>
 
