@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update
-apt install git mariadb-server nginx python3 python3-pip python3-venv python3-dev libmariadb-dev -y
+apt install git mariadb-server nginx python3 python3-pip python3-venv python3-dev libmariadb-dev ufw -y
 
 mysql -sfu root <<EOS
 -- set root password
@@ -64,7 +64,7 @@ systemctl enable gunicorn.socket
 cat << EOF > /etc/nginx/sites-available/sae23
 server {
     listen 80;
-    server_name sae23.lan;
+    server_name sae23.louis.systems;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
@@ -81,3 +81,7 @@ EOF
 ln -s /etc/nginx/sites-available/sae23 /etc/nginx/sites-enabled/
 
 systemctl restart nginx
+
+ufw enable
+ufw allow 22/tcp
+ufw allow 80/tcp

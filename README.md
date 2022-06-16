@@ -1,5 +1,11 @@
 # Sujet 7 Gestion de trafic aérien
 
+Pour l'installation sur un serveur Debian 11:
+``` bash
+apt install curl
+curl -sSL https://raw.githubusercontent.com/ldsvrn/SAE23-TraficAerien/main/server_install.sh | bash
+```
+
 Ce sujet va vous permettre de fournir une interface de gestion du trafic aérien entre des aéroports. Le gestionnaire pourra ajouter des aéroports, des avions des vols des compagnies, … Le schéma de données est le suivant:
 
 - des aéroports (id, nom, pays)
