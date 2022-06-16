@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
 
-<html>
+<html lang="fr">
 {% load static %}
-	<head>
-		<title>Eventually by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{%static  'assets/main.css'%}" />
-	</head>
-szgzg
+<head>
+    <title>Main</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static  'index.css' %}"/>
+</head>
+<body class="body-main">
 
-	</body>
+    <img class="image-une" src="{% static 'img/image-1.jpg' %}" alt="une"/>
+    <img class="image-deux" src="{% static 'img/image-2.jpg' %}" alt="une"/>
+
+    <div class="content"><a class="btn-main" href="/index"> Accueil</a></div>
+</body>
 </html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from ..forms import ModeleForm
 from .. import models
 from ..models import Modele

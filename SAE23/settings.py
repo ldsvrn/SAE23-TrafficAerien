@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure--2z2p#dgfj@y@^udxbo!0gr5=%pa+4^73*wt4v#0k-$_)(uw=+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sae23.louis.systems']
+ALLOWED_HOSTS = ['sae23.louis.systems',
+                 '127.0.0.1',]
 
 
 # Application definition
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'traficaerien.apps.TraficaerienConfig',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [

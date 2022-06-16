@@ -6,9 +6,11 @@
 {% block h1 %}Ajouter un Vol{% endblock h1 %} 
 
 {% block content %}
+
 <form method="post" action="">
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" class="btn btn-success" value="Valider"\>
 </form>
+
 {% endblock content %}

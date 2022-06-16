@@ -7,7 +7,8 @@
 
 
 {% block content %}
-<div class="d-grid gap-2 col-6 mx-auto">
+
+<div class="d-grid gap-2 col-6 mx-auto ">
 
     <a class=" justify-content-md-center btn btn-success" href="/avion/ajout">Ajouter un avion</a>
 </div>
@@ -23,7 +24,7 @@
     {% for avion in avions %}
     <tbody>
     <tr>
-        <td><a href="">{{avion.idavion}}</a></td>
+        <td><a class="ID" href="">{{avion.idavion}}</a></td>
         <td>{{avion.idcompagnie.nomcompagnie}}</td>
         <td>{{avion.idmodele.nommodele}}</td>
         <td class="text-end">
@@ -36,5 +37,6 @@
     </tbody>
     {% endfor %}
 </table>
+
 
 {% endblock content %}
