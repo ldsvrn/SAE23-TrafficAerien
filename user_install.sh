@@ -6,7 +6,7 @@ pip3 install django django-admin mysqlclient gunicorn crispy-bootstrap5 Pillow
 
 python3 /home/toto/django/manage.py makemigration
 python3 /home/toto/django/manage.py migrate
-python3 /home/toto/django/manage.py collectstatic"
+python3 /home/toto/django/manage.py collectstatic
 
 #python3 /home/toto/django/manage.py runserver
 #/home/toto/django/.venv/bin/gunicorn --bind 0.0.0.0:8000 SAE23.wsgi
