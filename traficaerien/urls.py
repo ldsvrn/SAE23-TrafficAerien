@@ -26,6 +26,9 @@ urlpatterns = [
     path('aeroport/suppr/<int:id>', views.delete_aeroport),
     path('aeroport/modif/<int:id>', views.modif_aeroport),
     path('aeroport/save/<int:id>', views.save_modif_aeroport),
+    path('aeroport/pistes/<int:id>', views.liste_aeroport_piste),
+    path('aeroport/vols_arrivee/<int:id>', views.liste_aeroports_vols_arrivee),
+    path('aeroport/vols_depart/<int:id>', views.liste_aeroports_vols_depart),
 
     path('compagnie/ajout',views.ajout_compagnie),
     path('compagnie/liste',views.liste_compagnie),

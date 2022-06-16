@@ -8,7 +8,7 @@ class Aeroport(models.Model):
     paysaeroport = models.CharField(db_column='PaysAeroport', max_length=45)
 
     def __str__(self) -> str:
-        return self.nomaeroport
+        return f"{self.nomaeroport}, {self.paysaeroport}"
 
     class Meta:
         managed = False

@@ -26,6 +26,10 @@
             <td>{{aeroport.paysaeroport}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
+                <a type="button" class="btn btn-info" href="/aeroport/pistes/{{aeroport.idaeroport}}">Liste des pistes</a>
+                <a type="button" class="btn btn-info" href="/aeroport/vols_depart/{{aeroport.idaeroport}}">Vols départ</a>
+                <a type="button" class="btn btn-info" href="/aeroport/vols_arrivee/{{aeroport.idaeroport}}">Vols arrivée</a>
+
                 <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}">Modifier</a>
                 <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}">Supprimer</a>
             </td>

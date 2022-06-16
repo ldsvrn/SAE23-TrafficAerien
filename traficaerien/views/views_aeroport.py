@@ -22,9 +22,8 @@ def ajout_aeroport(request):
 
 
 def liste_aeroport(request):
-    vols = Vol.objects.all()
     aeroports = Aeroport.objects.all()
-    return render(request, 'aeroport/liste_aeroport.html', {'aeroports': aeroports, "vols": vols})
+    return render(request, 'aeroport/liste_aeroport.html', {'aeroports': aeroports})
 
 
 def delete_aeroport(request, id):
@@ -56,3 +55,18 @@ def save_modif_aeroport(request, id):
         return HttpResponseRedirect("/aeroport/liste")
     else:
         return render(request, "aeroport/modif_aeroport.html", {"form": aeroform, "id": id})
+
+
+def liste_aeroport_piste(request, id):
+    piste = models.Piste.objects.filter(idaeroport = id)
+    return render(request, 'piste/liste_piste.html', {'pistes': piste})
+
+
+def liste_aeroports_vols_arrivee(request, id):
+    vols = models.Vol.objects.filter(idaeroportarrivee = id)
+    return render(request, 'vol/liste_vol.html', {'vols': vols})
+
+
+def liste_aeroports_vols_depart(request, id):
+    vols = models.Vol.objects.filter(idaeroportdepart = id)
+    return render(request, 'vol/liste_vol.html', {'vols': vols})
