@@ -1,0 +1,94 @@
+{% extends "template.html" %}
+
+{% block title %}Trafic Aérien{% endblock title %}
+
+{% block p %}
+Bienvenue sur notre site de gestion du trafic aérien. Ce site réalisé durant la SAE23 permet de gérer une base de données contenant des informations sur tout le trafic mondial.
+{% endblock p %}
+
+{% block content %}
+<div>
+    <p class="fs-3 text-center"> Si vous souhaitez interagir avec la base de données :</p>
+
+    <div class="list-group">
+
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Tables</th>
+                <th scope="col">Ajout d'un élément</th>
+                <th scope="col">Liste des éléments</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Avion</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="avion/ajout">Ajout d'un avion</a>
+                    </button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="avion/liste">Liste des avions</a>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Piste</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="piste/ajout">Ajout d'une piste</a>
+                    </button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="piste/liste">Liste des pistes</a>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Vol</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="vol/ajout">Ajout d'un vol</a>
+                    </button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="vol/liste">Liste des vols</a>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>Aéroport</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="aeroport/ajout">Ajout d'un
+                        aéroport</a></button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="aeroport/liste">Liste des
+                        aéroports</a></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Compagnie</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="compagnie/ajout">Ajout d'une
+                        compagnie</a></button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="compagnie/liste">Liste des
+                        compagnies</a></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Modèle</td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="modele/ajout">Ajout d'un type
+                        d'avion</a></button>
+                </td>
+                <td>
+                    <button><a class="list-group-item list-group-item-action" href="modele/liste">Liste des types
+                        d'avion</a></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
