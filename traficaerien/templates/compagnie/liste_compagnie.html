@@ -4,11 +4,13 @@
 
 {% block h1 %}Liste des Compagnies{% endblock h1 %} 
 
-{% block navbar %}
-<a class="nav-link" href="/compagnie/ajout">Ajouter une compagnie</a>
-{% endblock navbar %}
+
 
 {% block content %}
+<div class="d-grid gap-2 col-6 mx-auto">
+
+    <a class=" justify-content-md-center btn btn-success" href="/compagnie/ajout">Ajouter une compagnie</a>
+</div>
     <table class="table is-fullwidth is-hoverable">
         <thead>
         <tr>
@@ -22,7 +24,7 @@
         {% for compagnie in compagnies %}
         <tbody>
         <tr>
-            <td><a href="">{{compagnie.idcompagnie}}</td>
+            <td><a href="">{{compagnie.idcompagnie}}</a></td>
             <td>{{compagnie.nomcompagnie}}</td>
             <td>{{compagnie.descricompagnie}}</td>
             <td>{{compagnie.payscompagnie}}</td>
