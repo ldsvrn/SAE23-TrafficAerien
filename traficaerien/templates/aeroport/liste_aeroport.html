@@ -2,40 +2,42 @@
 
 {% block title %}Liste des Aéroports{% endblock title %}
 
-{% block h1 %}Liste des Aéroports{% endblock h1 %} 
+{% block h1 %}Liste des Aéroports{% endblock h1 %}
 
-{% block navbar %}
-<a class="nav-link" href="/aeroport/ajout">Ajouter un aéroport</a>
-{% endblock navbar %}
 
 {% block content %}
-    <table class="table is-fullwidth is-hoverable">
-        <thead>
-        <tr>
-            <th><abbr title="ID">ID</abbr></th>
-            <th>Nom</th>
-            <th>Pays</th>
-            <th class="text-end">Actions</th>
-        </tr>
-        </thead>
-        {% for aeroport in aeroports %}
-        <tbody>
-        <tr>
-            <td><a href="">{{aeroport.idaeroport}}</td>
-            <td>{{aeroport.nomaeroport}}</td>
-            <td>{{aeroport.paysaeroport}}</td>
-            <td class="text-end">
-                {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
-                <a type="button" class="btn btn-info" href="/aeroport/pistes/{{aeroport.idaeroport}}">Liste des pistes</a>
-                <a type="button" class="btn btn-info" href="/aeroport/vols_depart/{{aeroport.idaeroport}}">Vols départ</a>
-                <a type="button" class="btn btn-info" href="/aeroport/vols_arrivee/{{aeroport.idaeroport}}">Vols arrivée</a>
+<div class="d-grid gap-2 col-6 mx-auto">
 
-                <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}">Modifier</a>
-                <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}">Supprimer</a>
-            </td>
-        </tr>
-        </tbody>
-        {% endfor %}
-    </table>
-    
+    <a class=" justify-content-md-center btn btn-success" href="/aeroport/ajout">Ajouter un aéroport</a>
+</div>
+<table class="table is-fullwidth is-hoverable">
+    <thead>
+    <tr>
+        <th><abbr title="ID">ID</abbr></th>
+        <th>Nom</th>
+        <th>Pays</th>
+        <th class="text-end">Actions</th>
+    </tr>
+    </thead>
+    {% for aeroport in aeroports %}
+    <tbody>
+    <tr>
+        <td><a href="">{{aeroport.idaeroport}} </a></td>
+        <td>{{aeroport.nomaeroport}}</td>
+        <td>{{aeroport.paysaeroport}}</td>
+        <td class="text-end">
+            {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a>
+            {% endcomment %}
+            <a type="button" class="btn btn-info" href="/aeroport/pistes/{{aeroport.idaeroport}}">Liste des pistes</a>
+            <a type="button" class="btn btn-info" href="/aeroport/vols_depart/{{aeroport.idaeroport}}">Vols départ</a>
+            <a type="button" class="btn btn-info" href="/aeroport/vols_arrivee/{{aeroport.idaeroport}}">Vols arrivée</a>
+
+            <a type="button" class="btn btn-secondary" href="/aeroport/modif/{{aeroport.idaeroport}}">Modifier</a>
+            <a type="button" class="btn btn-danger" href="/aeroport/suppr/{{aeroport.idaeroport}}">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
 {% endblock content %}
