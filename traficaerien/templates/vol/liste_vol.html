@@ -4,11 +4,13 @@
 
 {% block h1 %}Liste des Vols{% endblock h1 %} 
 
-{% block navbar %}
-<a class="nav-link" href="/vol/ajout">Ajouter un vol</a>
-{% endblock navbar %}
+
 
 {% block content %}
+<div class="d-grid gap-2 col-6 mx-auto">
+
+    <a class=" justify-content-md-center btn btn-success" href="/vol/ajout">Ajouter un vol</a>
+</div>
     <table class="table is-fullwidth is-hoverable">
         <thead>
         <tr>
@@ -25,7 +27,7 @@
         {% for vol in vols %}
         <tbody>
         <tr>
-            <td><a href="">{{vol.idvol}}</td>
+            <td><a href="">{{vol.idvol}}</a></td>
             <td>{{vol.idavion.idmodele.nommodele}} de {{vol.idavion.idcompagnie.nomcompagnie}}</td>
             <td>{{vol.pilotevol}}</td>
             <td>{{vol.idaeroportdepart.nomaeroport}}, {{vol.idaeroportdepart.paysaeroport}}</td>
