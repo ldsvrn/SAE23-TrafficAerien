@@ -3,8 +3,13 @@ from ..forms import AeroportForm
 from .. import models
 from ..models import Aeroport
 from ..models import Vol
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse
 from django.forms.models import model_to_dict
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import Table
+from reportlab.lib.units import cm
+import io
 
 
 def ajout_aeroport(request):
@@ -70,3 +75,30 @@ def liste_aeroports_vols_arrivee(request, id):
 def liste_aeroports_vols_depart(request, id):
     vols = models.Vol.objects.filter(idaeroportdepart = id)
     return render(request, 'vol/liste_vol.html', {'vols': vols})
+
+
+def fiche_de_vols(request, id):
+    aeroport = models.Aeroport.objects.get(idaeroport=id)
+    vols = models.Vol.objects.filter(idaeroportdepart = id)
+    buffer = io.BytesIO()
+
+    p = canvas.Canvas(buffer, pagesize=A4)
+    p.drawString(cm, 28*cm, f"Vols partant de l'aéroport {aeroport}")
+    data = [["Avion", "Pilote", "Vers", "Départ", "Arrivée"]]
+    for vol in vols:
+        data.append([
+            vol.idavion.idmodele.nommodele, 
+            vol.pilotevol,
+            vol.idaeroportarrivee.nomaeroport,
+            vol.datedepartvol,
+            vol.datearriveevol
+            ])
+    print(data)
+    t=Table(data)
+    t.wrapOn(p, 25*cm,100)
+    t.drawOn(p, cm, 25*cm)
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename=f"fiche-vol-{aeroport.nomaeroport}.pdf")
