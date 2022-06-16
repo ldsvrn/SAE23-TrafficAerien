@@ -30,7 +30,7 @@
             <td>{{modele.marquemodele}}</td>
             <td>{{modele.typemodele}}</td>
             <td>{{modele.descrimodele}}</td>
-            <td>{{modele.imagemodele}}</td>
+            <td><img src="/media/{{modele.imagemodele}}" class="modele-img"></td>
             <td>{{modele.longpistemodele}}</td>
             <td class="text-end">
                 {% comment %} <a type="button" class="btn btn-primary" href="/avion/details/{{avion.idavion}}/">Détails</a> {% endcomment %}
@@ -41,5 +41,9 @@
         </tbody>
         {% endfor %}
     </table>
-    
+
+
 {% endblock content %}
+
+
+

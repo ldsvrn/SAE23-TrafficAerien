@@ -51,7 +51,7 @@ class Modele(models.Model):
     marquemodele = models.CharField(db_column='MarqueModele', max_length=45)
     typemodele = models.CharField(db_column='TypeModele', max_length=45)
     descrimodele = models.TextField(db_column='DescriModele')
-    imagemodele = models.TextField(db_column='ImageModele')
+    imagemodele = models.ImageField(db_column='ImageModele', upload_to="images/")
     longpistemodele = models.IntegerField(db_column='LongPisteModele')
 
     def __str__(self) -> str:

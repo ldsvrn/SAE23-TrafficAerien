@@ -9,7 +9,7 @@ from django.forms.models import model_to_dict
 def ajout_modele(request):
     submitted = False
     if request.method == 'POST':
-        form = ModeleForm(request.POST)
+        form = ModeleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/modele/liste")

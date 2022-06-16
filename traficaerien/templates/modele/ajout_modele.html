@@ -5,7 +5,7 @@
 {% block h1 %}Ajouter un Modèle{% endblock h1 %} 
 
 {% block content %}
-<form method="post" action="">
+<form method="post" action="" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}
     <input type="submit" class="btn btn-success" value="Valider"\>
