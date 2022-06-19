@@ -5,7 +5,8 @@ Pour l'installation sur un serveur Debian 11:
 apt install curl
 curl -sSL https://raw.githubusercontent.com/ldsvrn/SAE23-TraficAerien/main/server_install.sh | bash
 ```
-
+Schéma relationnel BDD:
+![bdd](/schema-relationnel-db.png)
 Ce sujet va vous permettre de fournir une interface de gestion du trafic aérien entre des aéroports. Le gestionnaire pourra ajouter des aéroports, des avions des vols des compagnies, … Le schéma de données est le suivant:
 
 - des aéroports (id, nom, pays)
